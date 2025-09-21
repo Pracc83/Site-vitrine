@@ -1,0 +1,118 @@
+<!-- Page des réalisations -->
+<div class="min-h-screen bg-white">
+  <!-- Header -->
+  <app-header 
+    [brandInfo]="brandInfo"
+    (tabChange)="onTabChange($event)"
+    (scrollTo)="onScrollTo($event)">
+  </app-header>
+
+  <main role="main">
+  <!-- Header de la page -->
+  <section class="bg-gradient-to-b from-emerald-50 to-white py-16">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          Nos Réalisations
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Découvrez nos projets paysagers d'exception dans le Golfe de Saint-Tropez. 
+          Chaque réalisation témoigne de notre savoir-faire et de notre passion pour l'art du jardin.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filtres et tri -->
+  <section class="max-w-7xl mx-auto px-4 md:px-6 py-8">
+    <div class="flex flex-wrap gap-4 justify-center mb-8">
+      <button 
+        *ngFor="let category of categories" 
+        (click)="filterByCategory(category)"
+        [class]="selectedCategory === category ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+        class="px-4 py-2 rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+        [attr.aria-pressed]="selectedCategory === category"
+        [attr.aria-label]="'Filtrer par catégorie ' + category">
+        {{ category }}
+      </button>
+    </div>
+  </section>
+
+  <!-- Grille des réalisations -->
+  <section class="max-w-7xl mx-auto px-4 md:px-6 pb-16" aria-labelledby="realisations-heading">
+    <h2 id="realisations-heading" class="sr-only">Liste des réalisations</h2>
+    
+    <!-- Loading state -->
+    <div *ngIf="loading" class="flex items-center justify-center min-h-96" role="status" aria-live="polite">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600" aria-hidden="true"></div>
+      <span class="sr-only">Chargement des réalisations...</span>
+    </div>
+
+    <!-- Grille des réalisations -->
+    <div *ngIf="!loading" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <article *ngFor="let realisation of filteredRealisations" 
+               class="group animate-fade-in"
+               [attr.aria-labelledby]="'realisation-title-' + realisation.id">
+        <a [routerLink]="['/realisation', realisation.slug]" 
+           class="block focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-2xl"
+           [attr.aria-label]="'Voir les détails de ' + realisation.title">
+          <div class="relative overflow-hidden rounded-2xl border group-hover:shadow-lg transition-all duration-300">
+            <img [src]="realisation.heroImage" 
+                 [alt]="'Image de la réalisation ' + realisation.title" 
+                 class="aspect-[4/3] w-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                 loading="lazy"
+                 role="img">
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-center">
+                <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                </svg>
+                <p class="text-sm font-medium">Voir les détails</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Informations de la réalisation -->
+          <div class="mt-4">
+            <h3 [id]="'realisation-title-' + realisation.id" class="text-lg font-semibold text-gray-900 mb-2">
+              {{ realisation.title }}
+            </h3>
+            <p class="text-sm text-gray-600 mb-3 line-clamp-2">
+              {{ realisation.subtitle }}
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500">
+              <span class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                {{ realisation.location }}
+              </span>
+              <span class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full text-xs font-medium">
+                {{ realisation.category }}
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <!-- Message si aucune réalisation -->
+    <div *ngIf="!loading && filteredRealisations.length === 0" class="text-center py-16">
+      <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.709M15 6.291A7.962 7.962 0 0012 5c-2.34 0-4.29 1.009-5.824 2.709"></path>
+      </svg>
+      <h3 class="text-lg font-medium text-gray-900 mb-2">Aucune réalisation trouvée</h3>
+      <p class="text-gray-600">Essayez de changer de catégorie ou revenez plus tard.</p>
+    </div>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <app-footer 
+    [brandInfo]="brandInfo"
+    [contactInfo]="contactInfo"
+    (tabChange)="onTabChange($event)">
+  </app-footer>
+</div>

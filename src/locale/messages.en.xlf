@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <!-- Header -->
+      <trans-unit id="header.brand.name" datatype="plaintext">
+        <source>Saint‑Tropez Jardins</source>
+        <target>Saint‑Tropez Gardens</target>
+      </trans-unit>
+      <trans-unit id="header.brand.subtitle" datatype="plaintext">
+        <source>Élagage • Entretien • Gros spécimens</source>
+        <target>Tree Pruning • Maintenance • Large Specimens</target>
+      </trans-unit>
+      <trans-unit id="header.nav.services" datatype="plaintext">
+        <source>Métiers</source>
+        <target>Services</target>
+      </trans-unit>
+      <trans-unit id="header.nav.realisations" datatype="plaintext">
+        <source>Réalisations</source>
+        <target>Projects</target>
+      </trans-unit>
+      <trans-unit id="header.nav.fleet" datatype="plaintext">
+        <source>Flotte & Logistique</source>
+        <target>Fleet & Logistics</target>
+      </trans-unit>
+      <trans-unit id="header.nav.zone" datatype="plaintext">
+        <source>Zone d'intervention</source>
+        <target>Service Area</target>
+      </trans-unit>
+      <trans-unit id="header.nav.contact" datatype="plaintext">
+        <source>Contact</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="header.cta.quote" datatype="plaintext">
+        <source>Demander un devis</source>
+        <target>Request Quote</target>
+      </trans-unit>
+      <trans-unit id="header.cta.quote.mobile" datatype="plaintext">
+        <source>Devis</source>
+        <target>Quote</target>
+      </trans-unit>
+
+      <!-- Hero -->
+      <trans-unit id="hero.location" datatype="plaintext">
+        <source>Golfe de Saint‑Tropez & alentours</source>
+        <target>Gulf of Saint‑Tropez & surroundings</target>
+      </trans-unit>
+      <trans-unit id="hero.title" datatype="plaintext">
+        <source>Paysagistes d'exception pour jardins d'exception</source>
+        <target>Exceptional landscapers for exceptional gardens</target>
+      </trans-unit>
+      <trans-unit id="hero.description" datatype="plaintext">
+        <source>Nous accompagnons une clientèle exigeante — du particulier à la propriété de prestige — pour sublimer et pérenniser vos espaces verts : élagage, entretien complet, plantations et déplacement de grands sujets.</source>
+        <target>We work with demanding clients — from private individuals to prestigious properties — to enhance and preserve your green spaces: tree pruning, complete maintenance, planting and moving large specimens.</target>
+      </trans-unit>
+      <trans-unit id="hero.cta.quote" datatype="plaintext">
+        <source>Obtenir un devis</source>
+        <target>Get a Quote</target>
+      </trans-unit>
+      <trans-unit id="hero.cta.discover" datatype="plaintext">
+        <source>Découvrir nos métiers</source>
+        <target>Discover our services</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

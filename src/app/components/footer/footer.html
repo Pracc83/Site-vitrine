@@ -1,0 +1,43 @@
+<!-- Footer -->
+<footer class="max-w-6xl mx-auto px-4 md:px-6 py-10 text-sm">
+  <div class="grid md:grid-cols-4 gap-6">
+    <div class="col-span-2">
+      <!-- Brand -->
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-10 w-10 rounded-2xl bg-emerald-600 flex items-center justify-center shadow-lg">
+          <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <div class="text-xl font-semibold tracking-tight">{{ brandInfo.name }}</div>
+          <div class="text-xs text-gray-500">{{ brandInfo.subtitle }}</div>
+        </div>
+      </div>
+      <p class="text-gray-600 max-w-md">Entreprise paysagiste ancrée dans le Golfe de Saint‑Tropez. Interventions sécurisées, finitions soignées et accompagnement haut de gamme selon vos attentes.</p>
+    </div>
+    
+    <div>
+      <div class="font-medium mb-2">Métiers</div>
+      <ul class="space-y-1 text-gray-600">
+        <li><a href="#services" (click)="onTabChange('elagage')" class="hover:text-emerald-700 cursor-pointer">Élagage</a></li>
+        <li><a href="#services" (click)="onTabChange('entretien')" class="hover:text-emerald-700 cursor-pointer">Entretien</a></li>
+        <li><a href="#services" (click)="onTabChange('gros')" class="hover:text-emerald-700 cursor-pointer">Gros spécimens</a></li>
+        <li><a href="#services" (click)="onTabChange('logistique')" class="hover:text-emerald-700 cursor-pointer">Flotte & logistique</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <div class="font-medium mb-2">Contact</div>
+      <ul class="space-y-1 text-gray-600">
+        <li>{{ contactInfo.phone }}</li>
+        <li>{{ contactInfo.email }}</li>
+        <li>{{ contactInfo.address }}</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="text-xs text-gray-500 mt-8">
+    © {{ currentYear }} {{ brandInfo.name }} — Tous droits réservés • Mentions légales • Politique de confidentialité
+  </div>
+</footer>

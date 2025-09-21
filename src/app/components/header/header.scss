@@ -1,0 +1,83 @@
+/* Styles pour le header responsive */
+
+/* Animation du menu mobile */
+#mobile-menu {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation du bouton hamburger */
+button[aria-expanded="true"] svg {
+  transform: rotate(90deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+button[aria-expanded="false"] svg {
+  transform: rotate(0deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Amélioration de l'accessibilité mobile */
+@media (max-width: 768px) {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* Focus visible amélioré pour mobile */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Amélioration du contraste sur mobile */
+@media (max-width: 640px) {
+  .text-gray-700 {
+    color: #374151;
+  }
+  
+  .hover\:text-emerald-700:hover {
+    color: #047857;
+  }
+}
+
+/* Animation douce pour les liens du menu mobile */
+#mobile-menu a {
+  transition: all 0.2s ease-in-out;
+}
+
+#mobile-menu a:hover {
+  transform: translateX(4px);
+}
+
+/* Amélioration de l'espacement sur très petits écrans */
+@media (max-width: 480px) {
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .gap-3 {
+    gap: 0.75rem;
+  }
+}

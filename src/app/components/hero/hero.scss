@@ -1,0 +1,33 @@
+.parallax-bg {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Amélioration de l'effet parallax */
+header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet de profondeur */
+.parallax-bg {
+  transform-origin: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Animation d'entrée pour le contenu */
+.animate-fade-in {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,132 @@
+<!-- Top Bar -->
+<header class="w-full border-b bg-white/80 backdrop-blur sticky top-0 z-50" role="banner">
+  <div class="max-w-6xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+    <!-- Brand -->
+    <div class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity" 
+         (click)="goToHome()"
+         role="button"
+         tabindex="0"
+         (keydown.enter)="goToHome()"
+         (keydown.space)="goToHome()"
+         aria-label="Retourner à la page d'accueil">
+      <div class="h-10 w-10 rounded-2xl bg-emerald-600 flex items-center justify-center shadow-lg" aria-hidden="true">
+        <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+        </svg>
+      </div>
+      <div class="leading-tight">
+        <h1 class="text-xl font-semibold tracking-tight">{{ 'header.brand.name' | translate }}</h1>
+        <p class="text-xs text-gray-500 hidden sm:block">{{ 'header.brand.subtitle' | translate }}</p>
+      </div>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-6" role="navigation" aria-label="Navigation principale">
+      <a href="#services" 
+         class="text-sm hover:text-emerald-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-md px-2 py-1" 
+         aria-label="Aller à la section Métiers">{{ 'header.nav.services' | translate }}</a>
+      <a href="#realisations" 
+         class="text-sm hover:text-emerald-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-md px-2 py-1" 
+         aria-label="Aller à la section Réalisations">{{ 'header.nav.realisations' | translate }}</a>
+      <a href="#services" 
+         (click)="onTabChange('logistique')" 
+         class="text-sm hover:text-emerald-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-md px-2 py-1" 
+         aria-label="Aller à la section Flotte et Logistique">{{ 'header.nav.fleet' | translate }}</a>
+      <a href="#zone" 
+         class="text-sm hover:text-emerald-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-md px-2 py-1" 
+         aria-label="Aller à la section Zone d'intervention">{{ 'header.nav.zone' | translate }}</a>
+      <a href="#contact" 
+         class="text-sm hover:text-emerald-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-md px-2 py-1" 
+         aria-label="Aller à la section Contact">{{ 'header.nav.contact' | translate }}</a>
+      
+      <!-- Language Switcher -->
+      <div class="flex items-center gap-2">
+        <label for="language-select" class="sr-only">Choisir la langue</label>
+        <select 
+          id="language-select"
+          [(ngModel)]="currentLanguage" 
+          (change)="onLanguageChange($any($event.target).value)"
+          class="text-sm border border-gray-300 rounded-lg px-2 py-1 bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+          aria-label="Sélectionner la langue">
+          <option *ngFor="let lang of languages" [value]="lang.code">
+            {{ lang.flag }} {{ lang.name }}
+          </option>
+        </select>
+      </div>
+      
+      <button class="bg-emerald-600 text-white px-4 py-2 rounded-2xl hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2" 
+              aria-label="Demander un devis gratuit">
+        {{ 'header.cta.quote' | translate }}
+      </button>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden flex items-center gap-3">
+      <!-- CTA Button Mobile -->
+      <button class="bg-emerald-600 text-white px-3 py-2 rounded-xl text-sm hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2" 
+              aria-label="Demander un devis gratuit">
+        {{ 'header.cta.quote.mobile' | translate }}
+      </button>
+      
+      <!-- Hamburger Menu Button -->
+      <button 
+        (click)="toggleMobileMenu()"
+        class="p-2 rounded-lg text-gray-600 hover:text-emerald-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+        [attr.aria-expanded]="isMobileMenuOpen"
+        [attr.aria-controls]="'mobile-menu'"
+        aria-label="Ouvrir le menu de navigation">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path *ngIf="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path *ngIf="isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div 
+    *ngIf="isMobileMenuOpen" 
+    id="mobile-menu"
+    class="md:hidden bg-white border-t border-gray-200 shadow-lg"
+    role="navigation"
+    aria-label="Menu mobile">
+    <div class="px-4 py-4 space-y-4">
+      <!-- Mobile Navigation Links -->
+      <a href="#services" 
+         (click)="closeMobileMenu()"
+         class="block text-gray-700 hover:text-emerald-700 py-2 px-3 rounded-lg hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2" 
+         aria-label="Aller à la section Métiers">{{ 'header.nav.services' | translate }}</a>
+      <a href="#realisations" 
+         (click)="closeMobileMenu()"
+         class="block text-gray-700 hover:text-emerald-700 py-2 px-3 rounded-lg hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2" 
+         aria-label="Aller à la section Réalisations">{{ 'header.nav.realisations' | translate }}</a>
+      <a href="#services" 
+         (click)="onTabChange('logistique'); closeMobileMenu()" 
+         class="block text-gray-700 hover:text-emerald-700 py-2 px-3 rounded-lg hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2" 
+         aria-label="Aller à la section Flotte et Logistique">{{ 'header.nav.fleet' | translate }}</a>
+      <a href="#zone" 
+         (click)="closeMobileMenu()"
+         class="block text-gray-700 hover:text-emerald-700 py-2 px-3 rounded-lg hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2" 
+         aria-label="Aller à la section Zone d'intervention">{{ 'header.nav.zone' | translate }}</a>
+      <a href="#contact" 
+         (click)="closeMobileMenu()"
+         class="block text-gray-700 hover:text-emerald-700 py-2 px-3 rounded-lg hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2" 
+         aria-label="Aller à la section Contact">{{ 'header.nav.contact' | translate }}</a>
+      
+      <!-- Language Switcher Mobile -->
+      <div class="pt-4 border-t border-gray-200">
+        <label for="language-select-mobile" class="block text-sm font-medium text-gray-700 mb-2">Langue</label>
+        <select 
+          id="language-select-mobile"
+          [(ngModel)]="currentLanguage" 
+          (change)="onLanguageChange($any($event.target).value)"
+          class="w-full text-sm border border-gray-300 rounded-lg px-3 py-2 bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+          aria-label="Sélectionner la langue">
+          <option *ngFor="let lang of languages" [value]="lang.code">
+            {{ lang.flag }} {{ lang.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://saint-tropez-jardins.fr/sitemap.xml
+
+# Crawl-delay pour éviter de surcharger le serveur
+Crawl-delay: 1
+
+# Interdire l'indexation des fichiers de développement
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.ts$
+Disallow: /*.scss$
+
+# Permettre l'indexation des assets
+Allow: /assets/
+Allow: /public/

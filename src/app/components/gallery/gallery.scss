@@ -1,0 +1,171 @@
+/* Styles personnalisés pour ngx-gallery */
+.ngx-gallery {
+  display: block;
+  width: 100%;
+}
+
+/* Personnalisation des miniatures */
+.ngx-gallery-thumbnails {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+  min-height: 120px;
+}
+
+.ngx-gallery-thumbnail {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  height: 80px;
+  min-height: 80px;
+}
+
+.ngx-gallery-thumbnail:hover {
+  transform: scale(1.05);
+  border-color: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.ngx-gallery-thumbnail.ngx-gallery-active {
+  border-color: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+}
+
+/* Personnalisation de l'image principale */
+.ngx-gallery-image {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Boutons de navigation */
+.ngx-gallery-arrow {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.ngx-gallery-arrow:hover {
+  background: rgba(16, 185, 129, 0.9);
+  transform: scale(1.1);
+}
+
+/* Indicateurs de pagination */
+.ngx-gallery-bullet {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.ngx-gallery-bullet.ngx-gallery-active {
+  background: #10b981;
+  transform: scale(1.2);
+}
+
+/* Preview (lightbox) */
+.ngx-gallery-preview {
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.ngx-gallery-preview-img {
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Boutons de contrôle du preview */
+.ngx-gallery-preview-close,
+.ngx-gallery-preview-arrow {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.ngx-gallery-preview-close:hover,
+.ngx-gallery-preview-arrow:hover {
+  background: rgba(16, 185, 129, 0.9);
+  transform: scale(1.1);
+}
+
+/* Actions d'image */
+.ngx-gallery-action {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.ngx-gallery-action:hover {
+  background: rgba(16, 185, 129, 0.9);
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ngx-gallery-thumbnails {
+    padding: 10px;
+    min-height: 100px;
+  }
+  
+  .ngx-gallery-thumbnail {
+    margin: 3px;
+    height: 70px;
+    min-height: 70px;
+  }
+  
+  .ngx-gallery-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ngx-gallery-thumbnails {
+    padding: 8px;
+    min-height: 90px;
+  }
+  
+  .ngx-gallery-thumbnail {
+    margin: 2px;
+    height: 60px;
+    min-height: 60px;
+  }
+}
+
+/* Animation d'entrée */
+.ngx-gallery {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Amélioration de l'accessibilité */
+.ngx-gallery-arrow:focus,
+.ngx-gallery-preview-close:focus,
+.ngx-gallery-action:focus {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+/* Styles pour les légendes */
+.ngx-gallery-description {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.4;
+}
