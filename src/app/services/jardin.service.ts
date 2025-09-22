@@ -7,7 +7,7 @@ import { Service, Realisation, ContactInfo, Offer, Zone, BrandInfo, RealisationD
 export class JardinService {
   
   private readonly IMAGES = {
-    hero: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&h=800&fit=crop&crop=center",
+    hero: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&h=900&fit=crop&crop=center",
     elagage: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop&crop=center",
     entretien: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&h=800&fit=crop&crop=center",
     gros1: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop&crop=center",
@@ -126,7 +126,6 @@ export class JardinService {
           'Plan d\'entretien annuel',
           'Interventions hors saison sur demande'
         ],
-        isPopular: true,
         buttonText: 'Parler à un expert',
         buttonVariant: 'default'
       },
@@ -139,7 +138,7 @@ export class JardinService {
           'Coordination avec intendance & sécurité',
           'Confidentialité contractuelle'
         ],
-        buttonText: 'Planifier une visite',
+        buttonText: 'Parler à un expert',
         buttonVariant: 'outline'
       }
     ];
@@ -173,6 +172,24 @@ export class JardinService {
   getRealisationBySlug(slug: string): RealisationDetail | undefined {
     const realisations = this.getRealisationsDetails();
     return realisations.find(r => r.slug === slug);
+  }
+
+  getPreviousRealisation(currentId: number): RealisationDetail | null {
+    const realisations = this.getRealisationsDetails();
+    const currentIndex = realisations.findIndex(r => r.id === currentId);
+    if (currentIndex > 0) {
+      return realisations[currentIndex - 1];
+    }
+    return null;
+  }
+
+  getNextRealisation(currentId: number): RealisationDetail | null {
+    const realisations = this.getRealisationsDetails();
+    const currentIndex = realisations.findIndex(r => r.id === currentId);
+    if (currentIndex < realisations.length - 1) {
+      return realisations[currentIndex + 1];
+    }
+    return null;
   }
 
   getRealisationsDetails(): RealisationDetail[] {
@@ -254,6 +271,51 @@ export class JardinService {
         year: 2023,
         category: "Élagage spécialisé",
         slug: "elagage-pins-parasols-saint-tropez",
+        seoTitle: "Élagage Pins Parasols Saint-Tropez - Cordistes Spécialisés | Saint-Tropez Jardins",
+        seoDescription: "Élagage spécialisé de pins parasols centenaires à Saint-Tropez. Intervention en corde par nos cordistes experts pour préserver ces arbres emblématiques.",
+        seoKeywords: "élagage pins parasols, Saint-Tropez, cordistes, taille sanitaire, arbres centenaires, bord de mer",
+        features: [
+          "Taille sanitaire de 8 pins parasols",
+          "Intervention en corde pour préserver les arbres",
+          "Évacuation et broyage des déchets",
+          "Traitement des plaies de taille",
+          "Mise en place d'un plan de suivi"
+        ],
+        gallery: [
+          {
+            id: 1,
+            src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center",
+            alt: "Pins parasols avant élagage",
+            caption: "État des pins parasols avant intervention",
+            thumbnail: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=200&h=200&fit=crop&crop=center"
+          },
+          {
+            id: 2,
+            src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center",
+            alt: "Cordiste en action",
+            caption: "Notre cordiste en action sur les pins",
+            thumbnail: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=200&h=200&fit=crop&crop=center"
+          },
+          {
+            id: 3,
+            src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center",
+            alt: "Résultat après élagage",
+            caption: "Résultat après élagage sanitaire",
+            thumbnail: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=200&h=200&fit=crop&crop=center"
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Fréjus, villa de prestige",
+        subtitle: "Taille sanitaire et esthétique de pins centenaires",
+        description: "Intervention délicate sur des pins parasols centenaires situés en bord de mer. Notre équipe de cordistes a procédé à une taille sanitaire et esthétique pour préserver ces arbres emblématiques tout en sécurisant la propriété.",
+        heroImage: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=600&fit=crop&crop=center",
+        client: "Hôtel de luxe",
+        location: "Saint-Tropez, Var",
+        year: 2023,
+        category: "Élagage spécialisé",
+        slug: "villa-de-prestige-frejus",
         seoTitle: "Élagage Pins Parasols Saint-Tropez - Cordistes Spécialisés | Saint-Tropez Jardins",
         seoDescription: "Élagage spécialisé de pins parasols centenaires à Saint-Tropez. Intervention en corde par nos cordistes experts pour préserver ces arbres emblématiques.",
         seoKeywords: "élagage pins parasols, Saint-Tropez, cordistes, taille sanitaire, arbres centenaires, bord de mer",

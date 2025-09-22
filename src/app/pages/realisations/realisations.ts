@@ -97,14 +97,20 @@ export class RealisationsPageComponent implements OnInit {
 
   // Méthodes pour gérer les événements du header et footer
   onTabChange(tab: string) {
-    // Logique pour changer d'onglet si nécessaire
-    console.log('Tab changed to:', tab);
+    // Rediriger vers la page d'accueil avec l'onglet approprié
+    window.location.href = `/#services?tab=${tab}`;
   }
 
   onScrollTo(section: string) {
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (section === 'contact') {
+      // Scroll vers la section contact sur cette page
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Rediriger vers la page d'accueil pour les autres sections
+      window.location.href = `/#${section}`;
     }
   }
 }

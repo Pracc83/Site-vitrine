@@ -61,6 +61,15 @@
         <source>Découvrir nos métiers</source>
         <target>Découvrir nos métiers</target>
       </trans-unit>
+            <trans-unit id="hero.cta.contact" datatype="plaintext">
+        <source>Nous contacter</source>
+        <target>Nous contacter</target>
+      </trans-unit>
+            </trans-unit>
+            <trans-unit id="hero.cta.realisations" datatype="plaintext">
+        <source>Voir nos réalisations</source>
+        <target>Voir nos réalisations</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

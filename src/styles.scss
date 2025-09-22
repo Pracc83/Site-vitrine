@@ -4,6 +4,92 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Typographie personnalisée */
+.font-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+.font-script-elegant {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-category {
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.font-body {
+  font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Classes utilitaires pour la typographie */
+.text-script {
+  @apply font-script;
+}
+
+.text-script-elegant {
+  @apply font-script-elegant;
+}
+
+.text-category {
+  @apply font-category;
+}
+
+.text-body {
+  @apply font-body;
+}
+
+/* Tailles de police augmentées */
+.text-sm {
+  font-size: 16px; /* Au lieu de 14px */
+}
+
+.text-base {
+  font-size: 18px; /* Au lieu de 16px */
+}
+
+.text-lg {
+  font-size: 20px; /* Au lieu de 18px */
+}
+
+.text-xl {
+  font-size: 24px; /* Au lieu de 20px */
+}
+
+.text-2xl {
+  font-size: 28px; /* Au lieu de 24px */
+}
+
+.text-3xl {
+  font-size: 36px; /* Au lieu de 30px */
+}
+
+.text-4xl {
+  font-size: 48px; /* Au lieu de 36px */
+}
+
+.text-5xl {
+  font-size: 60px; /* Au lieu de 48px */
+}
+
+.text-6xl {
+  font-size: 72px; /* Au lieu de 60px */
+}
+
+/* Scroll smooth pour tous les liens d'ancrage */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Application de la police Josefin Sans par défaut */
+body {
+  font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 18px; /* Augmentation de la taille de base */
+  // line-height: 3; /* Amélioration de l'espacement des lignes */
+  // letter-spacing: 0.03em; /* Amélioration de la lisibilité */
+}
+
 /* Styles d'accessibilité pour le SEO */
 .sr-only {
   position: absolute;
@@ -61,4 +147,17 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
   border-color: #10b981;
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Styles globaux pour les boutons - alignement vertical amélioré */
+button, .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+/* Amélioration de l'alignement vertical pour les boutons avec du texte */
+button:not(.no-flex), .btn:not(.no-flex) {
+  line-height: 1.2;
 }

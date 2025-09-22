@@ -1,5 +1,5 @@
 <!-- Page de réalisation -->
-<div class="min-h-screen bg-white">
+<div class="min-h-screen bg-white dark:bg-gray-900 flex flex-col">
   <!-- Header -->
   <app-header 
     [brandInfo]="brandInfo"
@@ -7,7 +7,7 @@
     (scrollTo)="onScrollTo($event)">
   </app-header>
 
-  <main role="main">
+  <main role="main" class="flex-1">
   <!-- Bouton retour -->
   <div class="max-w-6xl mx-auto px-4 md:px-6 py-6">
     <button 
@@ -26,9 +26,52 @@
     <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600" aria-hidden="true"></div>
     <span class="sr-only">Chargement de la réalisation en cours...</span>
   </div>
+  
 
   <!-- Contenu de la réalisation -->
   <article *ngIf="!loading && realisation" class="max-w-7xl mx-auto px-4 md:px-6">
+    <section class="my-12" aria-label="Navigation entre projets">
+      <div class="flex justify-between items-center gap-6">
+        <!-- Projet précédent -->
+        <div *ngIf="previousRealisation" class="flex-1">
+          <button 
+            (click)="goToPreviousRealisation()"
+            class="group flex items-center gap-4 p-4 bg-gray-50 hover:bg-emerald-50 rounded-xl transition-colors w-full text-left focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            aria-label="Voir le projet précédent">
+            <div class="flex-shrink-0">
+              <svg class="w-6 h-6 text-emerald-600 group-hover:text-emerald-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="text-sm text-gray-500 group-hover:text-emerald-600 transition-colors">Précédent</p>
+              <p class="font-medium text-gray-900 group-hover:text-emerald-800 transition-colors truncate">{{ previousRealisation.title }}</p>
+            </div>
+          </button>
+        </div>
+        
+        <!-- Espaceur si pas de projet précédent -->
+        <div *ngIf="!previousRealisation" class="flex-1"></div>
+
+        <!-- Projet suivant -->
+        <div *ngIf="nextRealisation" class="flex-1">
+          <button 
+            (click)="goToNextRealisation()"
+            class="group flex items-center gap-4 p-4 bg-gray-50 hover:bg-emerald-50 rounded-xl transition-colors w-full text-right focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            aria-label="Voir le projet suivant">
+            <div class="min-w-0 flex-1">
+              <p class="text-sm text-gray-500 group-hover:text-emerald-600 transition-colors">Suivant</p>
+              <p class="font-medium text-gray-900 group-hover:text-emerald-800 transition-colors truncate">{{ nextRealisation.title }}</p>
+            </div>
+            <div class="flex-shrink-0">
+              <svg class="w-6 h-6 text-emerald-600 group-hover:text-emerald-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
     <!-- Image d'entête -->
     <div class="relative h-96 md:h-[500px] rounded-2xl overflow-hidden mb-12">
       <img 
@@ -94,6 +137,50 @@
     <section class="mb-12" aria-labelledby="gallery-heading">
       <h2 id="gallery-heading" class="text-2xl font-semibold mb-6">Galerie photos</h2>
       <app-gallery [images]="realisation.gallery"></app-gallery>
+    </section>
+
+    <!-- Navigation entre réalisations -->
+    <section class="mb-12" aria-label="Navigation entre projets">
+      <div class="flex justify-between items-center gap-6">
+        <!-- Projet précédent -->
+        <div *ngIf="previousRealisation" class="flex-1">
+          <button 
+            (click)="goToPreviousRealisation()"
+            class="group flex items-center gap-4 p-4 bg-gray-50 hover:bg-emerald-50 rounded-xl transition-colors w-full text-left focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            aria-label="Voir le projet précédent">
+            <div class="flex-shrink-0">
+              <svg class="w-6 h-6 text-emerald-600 group-hover:text-emerald-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="text-sm text-gray-500 group-hover:text-emerald-600 transition-colors">Précédent</p>
+              <p class="font-medium text-gray-900 group-hover:text-emerald-800 transition-colors truncate">{{ previousRealisation.title }}</p>
+            </div>
+          </button>
+        </div>
+        
+        <!-- Espaceur si pas de projet précédent -->
+        <div *ngIf="!previousRealisation" class="flex-1"></div>
+
+        <!-- Projet suivant -->
+        <div *ngIf="nextRealisation" class="flex-1">
+          <button 
+            (click)="goToNextRealisation()"
+            class="group flex items-center gap-4 p-4 bg-gray-50 hover:bg-emerald-50 rounded-xl transition-colors w-full text-right focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            aria-label="Voir le projet suivant">
+            <div class="min-w-0 flex-1">
+              <p class="text-sm text-gray-500 group-hover:text-emerald-600 transition-colors">Suivant</p>
+              <p class="font-medium text-gray-900 group-hover:text-emerald-800 transition-colors truncate">{{ nextRealisation.title }}</p>
+            </div>
+            <div class="flex-shrink-0">
+              <svg class="w-6 h-6 text-emerald-600 group-hover:text-emerald-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
     </section>
   </article>
   </main>

@@ -30,7 +30,7 @@ export class GalleryComponent implements OnInit {
         imageAnimation: NgxGalleryAnimation.Slide,
         imageSize: 'cover',
         imageArrows: true,
-        imageArrowsAutoHide: true,
+        imageArrowsAutoHide: false,
         imageSwipe: true,
         thumbnailsArrows: true,
         thumbnailsSwipe: true,
@@ -48,10 +48,16 @@ export class GalleryComponent implements OnInit {
         previewDownload: true,
         previewFullscreen: true,
         previewForceFullscreen: false,
+        previewArrows: true,
+        previewArrowsAutoHide: false,
+        previewSwipe: true,
+        previewBullets: true,
+        arrowPrevIcon: 'fa fa-arrow-circle-left',
+        arrowNextIcon: 'fa fa-arrow-circle-right',
         imageBullets: true,
         imageAutoPlay: false,
         imageAutoPlayPauseOnHover: true,
-        imageAutoPlayInterval: 5000,
+        imageAutoPlayInterval: 3000,
         imageInfinityMove: true,
         imageActions: [
           {
@@ -72,8 +78,10 @@ export class GalleryComponent implements OnInit {
         thumbnailMargin: 8,
         imageSwipe: true,
         thumbnailsSwipe: true,
-        imageArrows: false,
-        thumbnailsArrows: false
+        imageArrows: true,
+        thumbnailsArrows: true,
+        previewArrows: true,
+        previewSwipe: true,
       },
       // Configuration pour très petits écrans
       {
@@ -86,8 +94,10 @@ export class GalleryComponent implements OnInit {
         thumbnailMargin: 5,
         imageSwipe: true,
         thumbnailsSwipe: true,
-        imageArrows: false,
-        thumbnailsArrows: false
+        imageArrows: true,
+        thumbnailsArrows: true,
+        previewArrows: true,
+        previewSwipe: true,
       }
     ];
 

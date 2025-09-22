@@ -7,7 +7,7 @@
       </svg>
       Nos Réalisations
     </h2>
-    <p class="text-gray-600 mt-2 max-w-3xl">Découvrez nos projets paysagers d'exception dans le Golfe de Saint-Tropez.</p>
+    <p class="text-gray-600 mt-2 max-w-6xl">Découvrez nos projets paysagers d'exception dans le Golfe de Saint-Tropez.</p>
   </div>
   
   <!-- Aperçu des réalisations -->
@@ -51,7 +51,7 @@
               </svg>
               {{ realisation.location }}
             </span>
-            <span class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full text-xs font-medium">
+            <span class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full text-sm font-medium">
               {{ realisation.category }}
             </span>
           </div>
@@ -63,7 +63,7 @@
   <!-- Bouton pour voir toutes les réalisations -->
   <div class="text-center">
     <a [routerLink]="['/realisations']" 
-       class="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-2xl hover:bg-emerald-700 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+       class="inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-2xl hover:bg-emerald-700 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
        aria-label="Voir toutes nos réalisations">
       Voir toutes nos réalisations
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

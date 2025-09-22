@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GalleryComponent } from '../../components/gallery/gallery';
 import { HeaderComponent } from '../../components/header/header';
 import { FooterComponent } from '../../components/footer/footer';
@@ -19,12 +19,17 @@ export class RealisationComponent implements OnInit {
   realisation!: RealisationDetail;
   loading = true;
   
+  // Navigation entre réalisations
+  previousRealisation: RealisationDetail | null = null;
+  nextRealisation: RealisationDetail | null = null;
+  
   // Données pour le header et footer
   brandInfo!: BrandInfo;
   contactInfo!: ContactInfo;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private jardinService: JardinService,
     private seoService: SEOService
   ) {}
@@ -43,6 +48,11 @@ export class RealisationComponent implements OnInit {
       this.realisation = this.jardinService.getRealisationBySlug(slug) || this.jardinService.getRealisationById(1);
       this.brandInfo = this.jardinService.getBrandInfo();
       this.contactInfo = this.jardinService.getContactInfo();
+      
+      // Charger les réalisations précédente et suivante
+      this.previousRealisation = this.jardinService.getPreviousRealisation(this.realisation.id);
+      this.nextRealisation = this.jardinService.getNextRealisation(this.realisation.id);
+      
       this.loading = false;
       this.updateSEO();
     }, 500);
@@ -60,7 +70,7 @@ export class RealisationComponent implements OnInit {
   }
 
   goBack() {
-    window.history.back();
+    this.router.navigate(['/realisations']);
   }
 
   // Méthodes pour gérer les événements du header et footer
@@ -73,6 +83,19 @@ export class RealisationComponent implements OnInit {
     const element = document.getElementById(section);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Navigation entre réalisations
+  goToPreviousRealisation() {
+    if (this.previousRealisation) {
+      this.router.navigate(['/realisation', this.previousRealisation.slug]);
+    }
+  }
+
+  goToNextRealisation() {
+    if (this.nextRealisation) {
+      this.router.navigate(['/realisation', this.nextRealisation.slug]);
     }
   }
 }

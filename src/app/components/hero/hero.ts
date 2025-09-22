@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, HostListener, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
@@ -14,7 +15,10 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   private scrollListener?: () => void;
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(
+    private elementRef: ElementRef,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.setupParallax();
@@ -41,5 +45,9 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   onScrollTo(section: string) {
     this.scrollTo.emit(section);
+  }
+
+  goToRealisations() {
+    this.router.navigate(['/realisations']);
   }
 }

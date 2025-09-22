@@ -6,6 +6,7 @@ import localeFr from '@angular/common/locales/fr';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { routes } from './app.routes';
+import { ThemeService } from './services/theme.service';
 
 // Enregistrer la locale française
 registerLocaleData(localeFr);
@@ -17,6 +18,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideAnimations(),
-    { provide: LOCALE_ID, useValue: 'fr-FR' }
+    { provide: LOCALE_ID, useValue: 'fr-FR' },
+    ThemeService
   ]
 };
