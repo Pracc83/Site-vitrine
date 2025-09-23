@@ -9,6 +9,7 @@
     "build": "ng build",
     "build:fr": "ng build --configuration=fr",
     "build:en": "ng build --configuration=en",
+    "build:ssr": "ng build --configuration=ssr",
     "build:i18n": "ng build --configuration=fr && ng build --configuration=en",
     "build:static": "ng build --configuration=production",
     "build:vercel": "npm run build:static",
