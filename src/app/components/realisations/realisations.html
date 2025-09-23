@@ -1,13 +1,13 @@
 <!-- Réalisations -->
 <section id="realisations" class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20" aria-labelledby="realisations-heading">
   <div class="mb-10">
-    <h2 id="realisations-heading" class="text-3xl md:text-4xl font-semibold tracking-tight flex items-center gap-3">
-      <svg class="h-6 w-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <h2 id="realisations-heading" class="text-3xl md:text-4xl font-heading font-semibold tracking-tight flex items-center gap-3">
+      <svg class="h-6 w-6 text-primary-main" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
       </svg>
       Nos Réalisations
     </h2>
-    <p class="text-gray-600 mt-2 max-w-6xl">Découvrez nos projets paysagers d'exception dans le Golfe de Saint-Tropez.</p>
+    <p class="text-text-primary mt-2 max-w-6xl font-body">Découvrez nos projets paysagers d'exception dans le Golfe de Saint-Tropez.</p>
   </div>
   
   <!-- Aperçu des réalisations -->
@@ -16,7 +16,7 @@
              class="animate-fade-in group"
              [attr.aria-labelledby]="'realisation-title-' + realisation.id">
       <a [routerLink]="['/realisation', realisation.slug]" 
-         class="block focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-2xl"
+         class="block rounded-2xl"
          [attr.aria-label]="'Voir les détails de ' + realisation.title">
         <div class="relative overflow-hidden rounded-2xl border group-hover:shadow-lg transition-all duration-300">
           <img [src]="realisation.heroImage" 
@@ -37,13 +37,13 @@
         
         <!-- Informations de la réalisation -->
         <div class="mt-4">
-          <h3 [id]="'realisation-title-' + realisation.id" class="text-lg font-semibold text-gray-900 mb-2">
+          <h3 [id]="'realisation-title-' + realisation.id" class="text-lg font-heading font-semibold text-text-primary mb-2">
             {{ realisation.title }}
           </h3>
-          <p class="text-sm text-gray-600 mb-3 line-clamp-2">
+          <p class="text-sm text-text-primary mb-3 line-clamp-2 font-body">
             {{ realisation.subtitle }}
           </p>
-          <div class="flex items-center justify-between text-sm text-gray-500">
+          <div class="flex items-center justify-between text-sm text-gray-500 font-body">
             <span class="flex items-center gap-1">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
@@ -51,7 +51,7 @@
               </svg>
               {{ realisation.location }}
             </span>
-            <span class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full text-sm font-medium">
+            <span class="bg-primary-accent/20 text-primary-dark px-2 py-1 rounded-full text-sm font-medium">
               {{ realisation.category }}
             </span>
           </div>
@@ -63,7 +63,7 @@
   <!-- Bouton pour voir toutes les réalisations -->
   <div class="text-center">
     <a [routerLink]="['/realisations']" 
-       class="inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-2xl hover:bg-emerald-700 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+       class="inline-flex items-center justify-center gap-2 bg-primary-main text-white px-6 py-3 rounded-2xl hover:bg-primary-dark transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-primary-main focus:ring-offset-2"
        aria-label="Voir toutes nos réalisations">
       Voir toutes nos réalisations
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -1,5 +1,5 @@
 <!-- Page des réalisations -->
-<div class="min-h-screen bg-white dark:bg-gray-900">
+<div class="min-h-screen bg-background text-text-primary">
   <!-- Header -->
   <app-header 
     [brandInfo]="brandInfo"
@@ -9,13 +9,13 @@
 
   <main role="main">
   <!-- Header de la page -->
-  <section class="bg-gradient-to-b from-emerald-50 to-white py-16">
+  <section class="py-16">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
       <div class="text-center">
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold tracking-tight mb-4">
           Nos Réalisations
         </h1>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p class="text-xl text-text-primary max-w-3xl mx-auto font-body">
           Découvrez nos projets paysagers d'exception dans le Golfe de Saint-Tropez. 
           Chaque réalisation témoigne de notre savoir-faire et de notre passion pour l'art du jardin.
         </p>
@@ -29,8 +29,8 @@
       <button 
         *ngFor="let category of categories" 
         (click)="filterByCategory(category)"
-        [class]="selectedCategory === category ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
-        class="px-4 py-2 rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+        [class]="selectedCategory === category ? 'bg-primary-main text-white' : 'bg-gray-100 text-text-primary hover:bg-gray-200'"
+        class="px-4 py-2 rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-main focus:ring-offset-2"
         [attr.aria-pressed]="selectedCategory === category"
         [attr.aria-label]="'Filtrer par catégorie ' + category">
         {{ category }}
@@ -44,7 +44,7 @@
     
     <!-- Loading state -->
     <div *ngIf="loading" class="flex items-center justify-center min-h-96" role="status" aria-live="polite">
-      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600" aria-hidden="true"></div>
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-main" aria-hidden="true"></div>
       <span class="sr-only">Chargement des réalisations...</span>
     </div>
 
@@ -54,7 +54,7 @@
                class="group animate-fade-in"
                [attr.aria-labelledby]="'realisation-title-' + realisation.id">
         <a [routerLink]="['/realisation', realisation.slug]" 
-           class="block focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-2xl"
+           class="block focus:outline-none focus:ring-2 focus:ring-primary-main focus:ring-offset-2 rounded-2xl"
            [attr.aria-label]="'Voir les détails de ' + realisation.title">
           <div class="relative overflow-hidden rounded-2xl border group-hover:shadow-lg transition-all duration-300">
             <img [src]="realisation.heroImage" 
@@ -75,13 +75,13 @@
           
           <!-- Informations de la réalisation -->
           <div class="mt-4">
-            <h3 [id]="'realisation-title-' + realisation.id" class="text-lg font-semibold text-gray-900 mb-2">
+            <h3 [id]="'realisation-title-' + realisation.id" class="text-lg font-heading font-semibold text-text-primary mb-2">
               {{ realisation.title }}
             </h3>
-            <p class="text-sm text-gray-600 mb-3 line-clamp-2">
+            <p class="text-sm text-text-primary mb-3 line-clamp-2 font-body">
               {{ realisation.subtitle }}
             </p>
-            <div class="flex items-center justify-between text-sm text-gray-500">
+            <div class="flex items-center justify-between text-sm text-gray-500 font-body">
               <span class="flex items-center gap-1">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
@@ -89,7 +89,7 @@
                 </svg>
                 {{ realisation.location }}
               </span>
-              <span class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full text-xs font-medium">
+              <span class="bg-primary-accent/20 text-primary-dark px-2 py-1 rounded-full text-xs font-medium">
                 {{ realisation.category }}
               </span>
             </div>
@@ -103,52 +103,52 @@
       <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.709M15 6.291A7.962 7.962 0 0012 5c-2.34 0-4.29 1.009-5.824 2.709"></path>
       </svg>
-      <h3 class="text-lg font-medium text-gray-900 mb-2">Aucune réalisation trouvée</h3>
-      <p class="text-gray-600">Essayez de changer de catégorie ou revenez plus tard.</p>
+      <h3 class="text-lg font-heading font-medium text-text-primary mb-2">Aucune réalisation trouvée</h3>
+      <p class="text-text-primary font-body">Essayez de changer de catégorie ou revenez plus tard.</p>
     </div>
   </section>
 
   <!-- Section Contact -->
-  <section id="contact" class="bg-gray-50 dark:bg-gray-800 py-16">
+  <section id="contact" class=" py-16">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-primary mb-4">
           Intéressé par nos services ?
         </h2>
-        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p class="text-lg text-text-primary max-w-2xl mx-auto font-body">
           Contactez-nous pour discuter de votre projet paysager et découvrir comment nous pouvons transformer votre espace extérieur.
         </p>
       </div>
       
       <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Informations de contact</h3>
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-heading font-semibold text-text-primary mb-4">Informations de contact</h3>
           <div class="space-y-3">
             <div class="flex items-center gap-3">
-              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-primary-main" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
               </svg>
-              <span class="text-gray-600 dark:text-gray-300">+33 4 XX XX XX XX</span>
+              <span class="text-text-primary font-body">+33 4 XX XX XX XX</span>
             </div>
             <div class="flex items-center gap-3">
-              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-primary-main" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
-              <span class="text-gray-600 dark:text-gray-300">contact@saint-tropez-jardins.fr</span>
+              <span class="text-text-primary font-body">contact@saint-tropez-jardins.fr</span>
             </div>
             <div class="flex items-center gap-3">
-              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-primary-main" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
               </svg>
-              <span class="text-gray-600 dark:text-gray-300">Golfe de Saint-Tropez, France</span>
+              <span class="text-text-primary font-body">Golfe de Saint-Tropez, France</span>
             </div>
           </div>
         </div>
         
-        <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Horaires d'ouverture</h3>
-          <div class="space-y-2 text-gray-600 dark:text-gray-300">
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-heading font-semibold text-text-primary mb-4">Horaires d'ouverture</h3>
+          <div class="space-y-2 text-text-primary font-body">
             <div class="flex justify-between">
               <span>Lundi - Vendredi</span>
               <span>8h00 - 18h00</span>

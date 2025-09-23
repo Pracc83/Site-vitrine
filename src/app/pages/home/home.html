@@ -1,8 +1,7 @@
-<div class="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-slate-900 dark:text-gray-100">
+<div class="min-h-screen bg-background text-text-primary">
   <!-- Header -->
   <app-header 
     [brandInfo]="brandInfo"
-    (tabChange)="onTabChange($event)"
     (scrollTo)="onScrollTo($event)">
   </app-header>
 
@@ -16,11 +15,7 @@
 
     <!-- Services -->
     <section id="services" aria-labelledby="services-heading">
-      <app-services 
-        [services]="services"
-        [activeTab]="activeTab"
-        (tabChange)="onTabChange($event)">
-      </app-services>
+      <app-services [services]="services"></app-services>
     </section>
 
     <!-- Réalisations -->
@@ -50,7 +45,6 @@
   <!-- Footer -->
   <app-footer 
     [brandInfo]="brandInfo"
-    [contactInfo]="contactInfo"
-    (tabChange)="onTabChange($event)">
+    [contactInfo]="contactInfo">
   </app-footer>
 </div>

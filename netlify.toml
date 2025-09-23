@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build:ssr"
+  publish = "dist/mon-projet-angular/browser"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  directory = "dist/mon-projet-angular/server"

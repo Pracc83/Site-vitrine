@@ -1,13 +1,13 @@
 <!-- Zone d'intervention -->
 <section id="zone" class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20">
   <div class="mb-10">
-    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight flex items-center gap-3">
-      <svg class="h-6 w-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <h2 class="text-3xl md:text-4xl font-heading font-semibold tracking-tight flex items-center gap-3">
+      <svg class="h-6 w-6 text-primary-main" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
       </svg>
       Zone d'intervention
     </h2>
-    <p class="text-gray-600 mt-2 max-w-6xl">Basés à Saint‑Tropez, nous intervenons sur l'ensemble du Golfe : Ramatuelle, Gassin, Grimaud, Sainte‑Maxime, Cogolin et alentours.</p>
+    <p class="text-text-primary mt-2 max-w-6xl font-body">Basés à Saint‑Tropez, nous intervenons sur l'ensemble du Golfe : Ramatuelle, Gassin, Grimaud, Sainte‑Maxime, Cogolin et alentours.</p>
   </div>
   
   <div class="bg-white rounded-2xl shadow-sm border p-6">
@@ -16,10 +16,10 @@
         <img [src]="zoneImage" alt="Golfe de Saint‑Tropez" class="h-full w-full object-cover" loading="lazy">
       </div>
       <div class="space-y-3 text-sm">
-        <p class="text-gray-700">Déplacements évalués selon accès et contraintes. Possibilité d'intervenir hors saison pour limiter la gêne sur sites touristiques.</p>
+        <p class="text-text-primary font-body">Déplacements évalués selon accès et contraintes. Possibilité d'intervenir hors saison pour limiter la gêne sur sites touristiques.</p>
         <div class="flex flex-wrap gap-2">
           <span *ngFor="let zone of zones" 
-                class="bg-gray-100 text-gray-700 px-3 py-1 rounded-xl text-xs">
+                class="bg-primary-accent/20 text-primary-dark px-3 py-1 rounded-xl text-xs font-body">
             {{ zone.name }}
           </span>
         </div>

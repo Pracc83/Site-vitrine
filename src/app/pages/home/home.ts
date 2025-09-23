@@ -14,6 +14,7 @@ import { FooterComponent } from '../../components/footer/footer';
 // Import des services et modèles
 import { JardinService } from '../../services/jardin.service';
 import { SEOService } from '../../services/seo.service';
+import { StructuredDataService } from '../../services/structured-data.service';
 import { BrandInfo, Service, RealisationDetail, ContactInfo, Offer, Zone } from '../../models/jardin.models';
 
 @Component({
@@ -44,12 +45,11 @@ export class HomeComponent implements OnInit {
   heroImage!: string;
   zoneImage!: string;
   
-  // État
-  activeTab: string = 'elagage';
 
   constructor(
     private jardinService: JardinService,
-    private seoService: SEOService
+    private seoService: SEOService,
+    private structuredDataService: StructuredDataService
   ) {}
 
   ngOnInit() {
@@ -68,9 +68,6 @@ export class HomeComponent implements OnInit {
     this.zoneImage = this.jardinService.getZoneImage();
   }
 
-  onTabChange(tab: string) {
-    this.activeTab = tab;
-  }
 
   onScrollTo(section: string) {
     const element = document.getElementById(section);
@@ -83,8 +80,14 @@ export class HomeComponent implements OnInit {
     // Mise à jour des meta tags pour la page d'accueil
     this.seoService.updateHomePageSEO();
     
-    // Ajout des données structurées
-    const organizationData = this.seoService.generateStructuredData('Organization');
-    this.seoService.addStructuredData(organizationData);
+    // Ajout des données structurées pour l'entreprise locale
+    const localBusinessData = this.structuredDataService.generateLocalBusiness();
+    this.seoService.addStructuredData(JSON.stringify(localBusinessData));
+
+    // Breadcrumb pour la page d'accueil
+    const breadcrumbData = this.structuredDataService.generateBreadcrumbList([
+      { name: 'Accueil', url: '' }
+    ]);
+    this.seoService.addStructuredData(JSON.stringify(breadcrumbData));
   }
 }

@@ -1,7 +1,7 @@
 <!-- Hero -->
 <section class="relative overflow-hidden h-screen" role="banner" aria-labelledby="hero-title">
   <div
-    class="absolute inset-0 pointer-events-none [background:radial-gradient(600px_circle_at_10%_10%,rgba(16,185,129,.08),transparent_40%),radial-gradient(600px_circle_at_90%_20%,rgba(16,185,129,.06),transparent_40%),radial-gradient(700px_circle_at_50%_100%,rgba(16,185,129,.08),transparent_45%)]"
+    class="absolute inset-0 pointer-events-none [background:radial-gradient(600px_circle_at_10%_10%,rgba(47,107,46,.08),transparent_40%),radial-gradient(600px_circle_at_90%_20%,rgba(47,107,46,.06),transparent_40%),radial-gradient(700px_circle_at_50%_100%,rgba(47,107,46,.08),transparent_45%)]"
     aria-hidden="true"></div>
   <img [src]="heroImage"
     alt="Jardin méditerranéen de villa avec oliviers et végétation méditerranéenne dans le Golfe de Saint-Tropez"
@@ -10,7 +10,7 @@
     <div class="relative z-20 animate-fade-in">
       <!-- Fond semi-transparent juste derrière le contenu -->
       <div class="absolute -inset-8 bg-gradient-to-r from-white/70 to-white/100 rounded-3xl -z-10"></div>
-      <div class="inline-flex items-center gap-2 text-xs rounded-full bg-emerald-100 text-emerald-700 px-3 py-1"
+      <div class="inline-flex items-center gap-2 text-xs rounded-full bg-primary-accent/20 text-primary-dark px-3 py-1"
         role="text" aria-label="Zone d'intervention">
         <svg class="h-3.5 w-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -21,27 +21,27 @@
         <span class="leading-none pt-[1px]" i18n="@@hero.location">Golfe de Saint‑Tropez & alentours</span>
       </div>
       <h1 id="hero-title"
-        class="text-4xl md:text-6xl font-script-elegant text-emerald-900 dark:text-emerald-300 tracking-tight mt-4 leading-tight drop-shadow-sm"
+        class="text-4xl md:text-6xl font-heading text-primary-dark tracking-tight mt-4 leading-tight drop-shadow-sm"
         i18n="@@hero.title">
         Paysagistes d'exception pour jardins d'exception
       </h1>
-      <p class="text-gray-700 dark:text-gray-300 mt-4 max-w-2xl font-medium drop-shadow-sm" i18n="@@hero.description">
+      <p class="text-text-primary mt-4 max-w-2xl font-body font-medium drop-shadow-sm" i18n="@@hero.description">
         Nous accompagnons une clientèle exigeante — du particulier à la propriété de prestige — pour sublimer et
         pérenniser vos espaces verts : élagage, entretien complet, plantations et déplacement de grands sujets.
       </p>
       <div class="mt-8 flex flex-wrap gap-3" role="group" aria-label="Actions principales">
         <button
-          class="bg-emerald-600 text-white px-6 py-3 rounded-2xl hover:bg-emerald-700 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 flex items-center justify-center"
+          class="bg-primary-main text-white px-6 py-3 rounded-2xl hover:bg-primary-dark transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-primary-main focus:ring-offset-2 flex items-center justify-center"
           i18n="@@hero.cta.quote" aria-label="Nous contacter">
           Nous contacter
         </button>
         <button
-          class="border border-emerald-600 text-emerald-600 px-6 py-3 rounded-2xl hover:bg-emerald-50 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 flex items-center justify-center"
+          class="border border-primary-main text-primary-main px-6 py-3 rounded-2xl hover:bg-primary-accent/20 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-primary-main focus:ring-offset-2 flex items-center justify-center"
           (click)="onScrollTo('services')" i18n="@@hero.cta.discover" aria-label="Découvrir nos services de paysagisme">
           Découvrir nos métiers
         </button>
         <button
-          class="border border-emerald-600 text-emerald-600 px-6 py-3 rounded-2xl hover:bg-emerald-50 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 flex items-center justify-center"
+          class="border border-primary-main text-primary-main px-6 py-3 rounded-2xl hover:bg-primary-accent/20 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-primary-main focus:ring-offset-2 flex items-center justify-center"
           (click)="goToRealisations()"
           i18n="@@hero.cta.realisations" aria-label="Voir nos réalisations">
           Voir nos réalisations

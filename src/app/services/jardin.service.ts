@@ -8,19 +8,20 @@ export class JardinService {
   
   private readonly IMAGES = {
     hero: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&h=900&fit=crop&crop=center",
-    elagage: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop&crop=center",
-    entretien: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&h=800&fit=crop&crop=center",
-    gros1: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop&crop=center",
-    gros2: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&h=800&fit=crop&crop=center",
-    flotte: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&h=800&fit=crop&crop=center",
+    // Images spécifiques et professionnelles pour chaque service
+    elagage: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1200&h=800&fit=crop&crop=center", // Arboriste professionnel avec tronçonneuse
+    entretien: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&h=800&fit=crop&crop=center", // Entretien de jardin méditerranéen
+    gros1: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=800&fit=crop&crop=center", // Plantation d'olivier centenaire
+    gros2: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=800&fit=crop&crop=center", // Plantation d'olivier centenaire
+    flotte: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=1200&h=800&fit=crop&crop=center", // Camion et équipement de jardinage professionnel
     zone: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=900&fit=crop&crop=center",
     realisations: [
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop&crop=center", // Jardin méditerranéen avec piscine
+      "https://images.unsplash.com/photo-1600298881974-6be191ceeda1?w=800&h=600&fit=crop&crop=center", // Aménagement paysager moderne
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop&crop=center", // Plantation d'oliviers
+      "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=600&fit=crop&crop=center", // Élagage d'arbres
+      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=800&h=600&fit=crop&crop=center", // Entretien professionnel
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&crop=center", // Jardin de villa
     ],
   };
 
@@ -316,6 +317,51 @@ export class JardinService {
         year: 2023,
         category: "Élagage spécialisé",
         slug: "villa-de-prestige-frejus",
+        seoTitle: "Élagage Pins Parasols Saint-Tropez - Cordistes Spécialisés | Saint-Tropez Jardins",
+        seoDescription: "Élagage spécialisé de pins parasols centenaires à Saint-Tropez. Intervention en corde par nos cordistes experts pour préserver ces arbres emblématiques.",
+        seoKeywords: "élagage pins parasols, Saint-Tropez, cordistes, taille sanitaire, arbres centenaires, bord de mer",
+        features: [
+          "Taille sanitaire de 8 pins parasols",
+          "Intervention en corde pour préserver les arbres",
+          "Évacuation et broyage des déchets",
+          "Traitement des plaies de taille",
+          "Mise en place d'un plan de suivi"
+        ],
+        gallery: [
+          {
+            id: 1,
+            src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center",
+            alt: "Pins parasols avant élagage",
+            caption: "État des pins parasols avant intervention",
+            thumbnail: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=200&h=200&fit=crop&crop=center"
+          },
+          {
+            id: 2,
+            src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center",
+            alt: "Cordiste en action",
+            caption: "Notre cordiste en action sur les pins",
+            thumbnail: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=200&h=200&fit=crop&crop=center"
+          },
+          {
+            id: 3,
+            src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center",
+            alt: "Résultat après élagage",
+            caption: "Résultat après élagage sanitaire",
+            thumbnail: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=200&h=200&fit=crop&crop=center"
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "St raphael mairie",
+        subtitle: "Taille sanitaire et esthétique de pins centenaires",
+        description: "Intervention délicate sur des pins parasols centenaires situés en bord de mer. Notre équipe de cordistes a procédé à une taille sanitaire et esthétique pour préserver ces arbres emblématiques tout en sécurisant la propriété.",
+        heroImage: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=600&fit=crop&crop=center",
+        client: "MairieC",
+        location: "Saint-Raphaël, Var",
+        year: 2023,
+        category: "Élagage spécialisé",
+        slug: "st-raphael-mairie",
         seoTitle: "Élagage Pins Parasols Saint-Tropez - Cordistes Spécialisés | Saint-Tropez Jardins",
         seoDescription: "Élagage spécialisé de pins parasols centenaires à Saint-Tropez. Intervention en corde par nos cordistes experts pour préserver ces arbres emblématiques.",
         seoKeywords: "élagage pins parasols, Saint-Tropez, cordistes, taille sanitaire, arbres centenaires, bord de mer",

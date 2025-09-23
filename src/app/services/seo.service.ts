@@ -9,13 +9,14 @@ export interface SEOData {
   image?: string;
   url?: string;
   type?: string;
+  structuredData?: any;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class SEOService {
-  private baseUrl = 'https://saint-tropez-jardins.fr';
+  private baseUrl = 'https://mon-projet-angular-3h0zgfnce-pracc83s-projects.vercel.app';
   private defaultImage = '/assets/images/og-image.jpg';
 
   constructor(
@@ -39,6 +40,11 @@ export class SEOService {
     // URL canonique
     const canonicalUrl = data.url ? `${this.baseUrl}${data.url}` : this.baseUrl;
     this.updateCanonicalUrl(canonicalUrl);
+
+    // Structured Data (JSON-LD)
+    if (data.structuredData) {
+      this.addStructuredData(data.structuredData);
+    }
 
     // Open Graph
     this.meta.updateTag({ property: 'og:title', content: data.title });

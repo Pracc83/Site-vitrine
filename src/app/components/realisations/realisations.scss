@@ -21,9 +21,41 @@
   overflow: hidden;
 }
 
-/* Amélioration de l'accessibilité pour les cartes */
-.group:focus-within {
-  outline: 2px solid #10b981;
-  outline-offset: 2px;
-  border-radius: 1rem;
+/* Styles pour les cartes de réalisations */
+.group {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Supprime la double bordure au focus */
+  &:focus-within {
+    outline: none;
+  }
+}
+
+/* Style pour le focus sur le lien */
+.group a {
+  &:focus {
+    outline: 2px solid #10b981;
+    outline-offset: 2px;
+    border-radius: 1rem;
+  }
+  
+  /* Améliore l'effet de survol */
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+/* Amélioration de l'effet de survol sur l'image */
+.group .relative {
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: #10b981;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
 }
